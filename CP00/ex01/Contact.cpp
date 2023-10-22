@@ -6,84 +6,137 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 15:24:34 by mmoramov          #+#    #+#             */
-/*   Updated: 2023/10/21 16:41:35 by mmoramov         ###   ########.fr       */
+/*   Updated: 2023/10/22 16:50:52 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-//decide if we want it
-std::string toUpper(std::string str)
-{
-	for (int i = 0; str[i]; i++)
-		str[i] = std::toupper(str[i]);
-	return (str);
-}
-
 Contact::Contact( void ) {
-
-	std::cout << "Constructor Contact called" << std::endl;
+	_contactIsEmpty = 1;
 	return;
 }
 
 Contact::~Contact( void ) {
-
-	std::cout << "Destructor Contact called" << std::endl;
 	return;
+}
+
+std::string	Contact::getFirstName( void ) {
+	return (Contact::_firstName);
+}
+
+std::string	Contact::getLastName( void ) {
+	return (Contact::_lastName);
+}
+
+std::string	Contact::getNickname( void ) {
+	return (Contact::_nickname);
+}
+
+std::string	Contact::getPhoneNumber( void ) {
+	return (Contact::_phoneNumber);
+}
+
+std::string	Contact::getDarkestSecret( void ) {
+	return (Contact::_darkestSecret);
 }
 
 void Contact::addContact( void ) {
 
-	std::string strAdd[5];
+	this->error = 0;
+	std::string data[5];
 
-	//getContactData //get line - read one by one
-	//checkContactData // check each one if its correct
-	//setContactData // put all contacts to Contact and put Contact to Contact
-	std::cout << "Please enter First Name:" << std::endl;
-	std::getline(std::cin, strAdd[0]);
-	std::cout << "Please enter Last Name:" << std::endl;
-	std::getline(std::cin, strAdd[1]);
-	std::cout << "Please enter Nickname:" << std::endl;
-	std::getline(std::cin, strAdd[2]);
-	std::cout << "Please enter Phone number:" << std::endl;
-	std::getline(std::cin, strAdd[3]);
-	std::cout << "Please enter Darkest secret:" << std::endl;
-	std::getline(std::cin, strAdd[4]);
-}
+	if (this->error == 0)
+		data[0] = _getContactData("First Name");
+	if (this->error == 0)
+		data[1] = _getContactData("Last Name");
+	if (this->error == 0)
+		data[2] = _getContactData("Nickname");
+	if (this->error == 0)
+		data[3] = _getContactData("Phone number");
+	if (this->error == 0)
+		data[4] = _getContactData("Darkest secret");
 
-int Contact::checkContactData( std::string strAdd[5] ) {
-	return 1;
-}
-
-void Contact::setContactData( std::string strAdd[5] ) {
+	if (this->error == 0)
+	{
+		this->_firstName = data[0];
+		this->_lastName = data[1];
+		this->_nickname = data[2];
+		this->_phoneNumber = data[3];
+		this->_darkestSecret = data[4];
+		std::cout << "Contact added. Redirecting back to the menu." << std::endl;
+		this->_contactIsEmpty = 0;
+	}
 	return;
 }
 
-int Contact::checkInput( std::string str ) {
+void Contact::showContact( void ) {
 
-	int	result;
+	std::cout << std::endl;
+	std::cout << "---- CONTACT INFORMATION ----" << std::endl;
+	std::cout << "First name: " << Contact::getFirstName() << std::endl;
+	std::cout << "Last name: " << Contact::getLastName() << std::endl;
+	std::cout << "Nickname: " << Contact::getNickname() << std::endl;
+	std::cout << "Phone number: " << Contact::getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret: " << Contact::getDarkestSecret() << std::endl;
+	std::cout << std::endl;
+}
 
-	result = 1;
+void Contact::showContactHeader( int index ) {
 
-	for (int i = 0; str[i]; i++)
+	std::cout << "|" << std::setw(10) << index << "|";
+	Contact::_showContactHeaderColumn(Contact::getFirstName());
+	Contact::_showContactHeaderColumn(Contact::getLastName());
+	Contact::_showContactHeaderColumn(Contact::getNickname());
+	std::cout << std::endl;
+}
+
+bool Contact::isEmpty( void ) {
+	if (Contact::_contactIsEmpty == 0)
+		return (0);
+	return (1);
+}
+
+std::string Contact::_getContactData( std::string name ) {
+
+	std::string line;
+
+	std::cout << "Please enter " << name << std::endl;
+	if (!std::getline(std::cin, line))
 	{
-		if (std::isalpha(str[i]) == 1)
-		{
-			std::cout << "Its alpha: " << str[i] << std::endl;
-		}
-		else
-		{
-			std::cout << "Its not alpha: " << str[i] << std::endl;
-			result = 0;
-		}
-
+		std::cout << "Input error: Redirecting back to the menu." << std::endl;
+		this->error = 1;
 	}
-	if (str.length() == 0)
-		result = 0;
-
-	if (result == 0)
+	if (line.empty())
 	{
-		std::cout << "Incorrect input, try again:" << std::endl;
+		std::cout << "Error: The input is empty. Redirecting back to the menu." << std::endl;
+		this->error = 1;
 	}
-	return (result);
+	else if (!name.compare("Phone number") && _containsOnlyDigits(line) == 0)
+	{
+		std::cout << "Error: Phone number can only contains digits. Redirecting back to the menu." << std::endl;
+		this->error = 1;
+	}
+	return (line);
+}
+
+bool Contact::_containsOnlyDigits(std::string str)
+{
+	int i = 0;
+
+	while (i < str[i])
+	{
+		if (!std::isdigit(str[i]))
+			return 0;
+		i++;
+	}
+	return (1);
+}
+
+void Contact::_showContactHeaderColumn( std::string string ) {
+
+	if (string.length() > 10)
+		std::cout << std::setw(9) << string.substr(0, 9) << ".|";
+	else
+		std::cout << std::setw(10) << string << "|";
 }

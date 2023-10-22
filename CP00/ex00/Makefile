@@ -6,7 +6,7 @@
 #    By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/17 22:50:10 by mmoramov          #+#    #+#              #
-#    Updated: 2023/09/17 23:56:54 by mmoramov         ###   ########.fr        #
+#    Updated: 2023/10/22 16:56:38 by mmoramov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ all: dir $(NAME)
 dir:
 	@mkdir -p $(F_OBJ)
 
-$(F_OBJ)%.o: %.cpp
+$(F_OBJ)%.o: %.cpp Makefile
 	$(CC) $(C_FLAGS) -I ./inc -c $< -o $@
 
 $(NAME):: $(OBJ)

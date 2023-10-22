@@ -6,27 +6,32 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:33:45 by mmoramov          #+#    #+#             */
-/*   Updated: 2023/10/21 16:38:06 by mmoramov         ###   ########.fr       */
+/*   Updated: 2023/10/22 15:05:18 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PHONEBOOK_H
+# define PHONEBOOK_H
 
 #include <iostream>
 #include <iomanip>
 #include "Contact.hpp"
 
-#ifndef PHONE_BOOK_H
-# define PHONE_BOOK_H
-
-class PhoneBook : public Contact {
+class PhoneBook {
 
 public:
 
 	PhoneBook( void );
 	~PhoneBook ( void );
 
-	std::string Contact[8];
-
 	void addNewContact( void );
+	void searchContact( void );
+
+private:
+
+	Contact _contacts[8];
+	int 	_totalAddedContacts;
+
 };
 
 #endif
