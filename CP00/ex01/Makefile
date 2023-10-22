@@ -6,7 +6,7 @@
 #    By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/19 19:06:41 by mmoramov          #+#    #+#              #
-#    Updated: 2023/10/21 15:28:07 by mmoramov         ###   ########.fr        #
+#    Updated: 2023/10/22 16:56:25 by mmoramov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ C_FLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 RM = rm -f
 
 #------------------------------SOURCES-----------------------------------------#
-SRC = PhoneBook.cpp Contact.cpp main.cpp
+SRC = main.cpp PhoneBook.cpp Contact.cpp
 
 F_OBJ = obj/
 OBJ = $(addprefix $(F_OBJ), $(SRC:.cpp=.o))
@@ -36,7 +36,7 @@ all: dir $(NAME)
 dir:
 	@mkdir -p $(F_OBJ)
 
-$(F_OBJ)%.o: %.cpp
+$(F_OBJ)%.o: %.cpp Makefile
 	$(CC) $(C_FLAGS) -I ./inc -c $< -o $@
 
 $(NAME):: $(OBJ)
