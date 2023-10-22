@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 10:29:30 by mmoramov          #+#    #+#             */
-/*   Updated: 2023/10/21 14:36:42 by mmoramov         ###   ########.fr       */
+/*   Updated: 2023/10/22 11:19:51 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
 Account::Account ( int initial_deposit ) {
+	if (initial_deposit < 0)
+	{
+		std::cout << "Its not possible to make a new account with this deposit" << std::endl;
+		return;
+	}
 	this->_accountIndex = this->_nbAccounts++;
 	this->_amount = initial_deposit;
 	this->_nbDeposits = 0;
@@ -83,6 +88,11 @@ void Account::displayAccountsInfos( void ) {
 }
 
 void Account::makeDeposit( int deposit ) {
+	if (deposit <= 0)
+	{
+		std::cout << "Its not possible to make a deposit with this amount" << std::endl;
+		return;
+	}
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "p_amount:" << this->_amount << ";";
@@ -97,6 +107,11 @@ void Account::makeDeposit( int deposit ) {
 }
 
 bool Account::makeWithdrawal( int withdrawal ) {
+	if (withdrawal <= 0)
+	{
+		std::cout << "Its not possible to make a withdraw with this amount" << std::endl;
+		return 0;
+	}
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "p_amount:" << this->_amount << ";";
@@ -109,10 +124,10 @@ bool Account::makeWithdrawal( int withdrawal ) {
 		std::cout << "withdrawal:" << withdrawal << ";";
 		std::cout << "amount:" << this->_amount << ";";
 		std::cout << "nb_withdrawals:" << this->_nbWithdrawals << std::endl;
+		return 1;
 	}
-	else
-		std::cout << "withdrawal:refused" << std::endl;;
-	return 1;
+	std::cout << "withdrawal:refused" << std::endl;;
+	return 0;
 }
 
 int Account::checkAmount( void ) const {
