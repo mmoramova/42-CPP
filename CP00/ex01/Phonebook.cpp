@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 15:03:53 by mmoramov          #+#    #+#             */
-/*   Updated: 2023/10/22 16:48:02 by mmoramov         ###   ########.fr       */
+/*   Updated: 2023/10/22 17:39:29 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ void PhoneBook::searchContact( void ) {
 
 	std::cout << "Please select an index to show all contact information: " << std::endl;
 	std::cin >> index;
-	if (std::cin.fail() || index < 0 || index > 7 || _contacts[index].isEmpty() == 1)
-	{
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	if (std::cin.fail() || index < 0 || index > 7)
 		std::cout << "Error: Invalid input. Redirecting back to the menu." << std::endl;
-	}
+	else if ( _contacts[index].isEmpty() == 1)
+		std::cout << "Error: Could not find the contact. Redirecting back to the menu." << std::endl;
 	else
 		_contacts[index].showContact();
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
