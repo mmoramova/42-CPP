@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 19:11:52 by mmoramov          #+#    #+#             */
-/*   Updated: 2023/10/23 19:12:43 by mmoramov         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:54:22 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define HUMANB_H
 
 #include <iostream>
-#include <iomanip>
+#include "Weapon.hpp"
 
 class HumanB {
 
@@ -25,12 +25,14 @@ public:
 	~HumanB( void );
 
 	void		attack( void );
+	void		setWeapon( Weapon &weapon );
 	void		setName( std::string name );
 	std::string	getName( void );
 
 private:
 
 	std::string	name;
+	Weapon		*weapon;
 
 };
 

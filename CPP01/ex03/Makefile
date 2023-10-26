@@ -6,11 +6,11 @@
 #    By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 18:54:53 by mmoramov          #+#    #+#              #
-#    Updated: 2023/10/23 18:55:57 by mmoramov         ###   ########.fr        #
+#    Updated: 2023/10/26 18:53:40 by mmoramov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = brain
+NAME = weapon
 CC = c++
 C_FLAGS = -Wall -Wextra -Werror -MMD -std=c++98
 RM = rm -f
