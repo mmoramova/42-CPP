@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 21:19:08 by mmoramov          #+#    #+#             */
-/*   Updated: 2023/10/27 19:33:26 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/01/13 16:06:34 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int main(int argc, char **argv)
 
 	if (infile.is_open())
 	{
-		do {
-			getline(infile, infileLine);
+		while (getline(infile, infileLine)) {
 			infileText += infileLine + '\n';
-		} while (!infileLine.empty());
+		}
+		infileText += '\n';
 		infileText.pop_back();
 	}
 	else
