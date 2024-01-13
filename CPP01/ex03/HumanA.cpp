@@ -6,16 +6,11 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 19:08:16 by mmoramov          #+#    #+#             */
-/*   Updated: 2023/10/26 18:52:27 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/01/13 14:58:34 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
-
-/*HumanA::HumanA( void ) {
-	std::cout << "HumanA created" << std::endl;
-	return;
-}*/
 
 HumanA::HumanA( std::string name, Weapon &weapon) : weapon(weapon) {
 	std::cout << "HumanA with name " << name << " created" << std::endl;
@@ -26,7 +21,7 @@ HumanA::HumanA( std::string name, Weapon &weapon) : weapon(weapon) {
 }
 
 HumanA::~HumanA( void ) {
-	std::cout << "HumanA died " << this->getName() << std::endl;
+	std::cout << "HumanA (" << this->getName() << ") died" << std::endl;
 	return;
 }
 

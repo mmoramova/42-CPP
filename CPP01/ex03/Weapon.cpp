@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 18:59:37 by mmoramov          #+#    #+#             */
-/*   Updated: 2023/10/23 19:02:47 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/01/13 14:52:16 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Weapon::Weapon( std::string type ) {
 }
 
 Weapon::~Weapon( void ) {
-	std::cout << "Weapon died " << this->getType() << std::endl;
+	std::cout << "Weapon " << this->getType() << " destructor called" << std::endl;
 	return;
 }
 

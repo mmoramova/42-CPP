@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 19:12:11 by mmoramov          #+#    #+#             */
-/*   Updated: 2023/10/26 18:52:42 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/01/13 15:00:47 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ HumanB::HumanB( std::string name) : weapon (nullptr) {
 }
 
 HumanB::~HumanB( void ) {
-	std::cout << "HumanB died " << this->getName() << std::endl;
+	std::cout << "HumanB (" << this->getName() << ") died" << std::endl;
 	return;
 }
 
@@ -44,4 +44,5 @@ void HumanB::attack( void ) {
 
 void HumanB::setWeapon( Weapon &weapon ) {
 	this->weapon = &weapon;
+	std::cout << this->getName() << " changed weapon to " << this->weapon->getType() << std::endl;
 }
