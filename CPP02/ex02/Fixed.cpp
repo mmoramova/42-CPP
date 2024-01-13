@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 16:04:30 by mmoramov          #+#    #+#             */
-/*   Updated: 2023/10/28 16:18:36 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/01/13 16:45:09 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,43 @@ bool Fixed::operator!=(const Fixed& base) const {
 	return(this->fixedPointNbr != base.getRawBits());
 }
 
+Fixed Fixed::operator+(const Fixed& base) const {
+	return(this->toFloat() + base.toFloat());
+}
+
+Fixed Fixed::operator-(const Fixed& base) const {
+	return(this->toFloat() - base.toFloat());
+}
+
+Fixed Fixed::operator*(const Fixed& base) const {
+	return(this->toFloat() * base.toFloat());
+}
+
+Fixed Fixed::operator/(const Fixed& base) const {
+	return(this->toFloat() / base.toFloat());
+}
+
+Fixed Fixed::operator++(int) {
+	Fixed temp = *this;
+	this->setRawBits(fixedPointNbr + (1 << fractionalBits));
+	return temp;
+}
+
+Fixed& Fixed::operator++(void) {
+	this->setRawBits(fixedPointNbr + (1 << fractionalBits));
+	return (*this);
+}
+
+Fixed Fixed::operator--(int) {
+	Fixed temp = *this;
+	this->setRawBits(fixedPointNbr - (1 << fractionalBits));
+	return temp;
+}
+
+Fixed& Fixed::operator--(void) {
+	this->setRawBits(fixedPointNbr - (1 << fractionalBits));
+	return (*this);
+}
 
 
 Fixed& Fixed::operator=(const Fixed& base) {
@@ -94,6 +131,24 @@ float Fixed::toFloat( void ) const {
 
 int Fixed::toInt( void ) const {
 	return(this->fixedPointNbr >> this->fractionalBits);
+}
+
+Fixed& Fixed::min (Fixed& a, Fixed& b) {
+	return a.getRawBits() > b.getRawBits() ? b : a;
+}
+
+const Fixed& Fixed::min (const Fixed& a, const Fixed& b) {
+	return a.getRawBits() > b.getRawBits() ? b : a;
+}
+
+Fixed& Fixed::max (Fixed& a, Fixed& b) {
+	std::cout << "max member function called" << std::endl;
+	return a.getRawBits() > b.getRawBits() ? a : b;
+}
+
+const Fixed& Fixed::max (const Fixed& a, const Fixed& b) {
+	std::cout << "const max member function called" << std::endl;
+	return a.getRawBits() > b.getRawBits() ? a : b;
 }
 
 std::ostream& operator<<(std::ostream& out, const Fixed& base) {

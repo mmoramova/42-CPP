@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 16:04:36 by mmoramov          #+#    #+#             */
-/*   Updated: 2023/10/28 16:17:39 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/01/13 16:56:17 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,31 @@ public:
 	bool operator==(const Fixed& base) const;
 	bool operator!=(const Fixed& base) const;
 
+	Fixed operator+(const Fixed& base) const;
+	Fixed operator-(const Fixed& base) const;
+	Fixed operator*(const Fixed& base) const;
+	Fixed operator/(const Fixed& base) const;
+
+	//a++
+	Fixed operator++(int);
+	//++a
+	Fixed& operator++(void);
+	//a--
+	Fixed operator--(int);
+	//--a
+	Fixed& operator--(void);
+
 	Fixed& operator=(const Fixed& base);
 	~Fixed( void );
 
-	int			getRawBits( void ) const;
-	void		setRawBits( int const raw );
-	float 		toFloat( void ) const;
-	int 		toInt( void ) const;
+	int					getRawBits( void ) const;
+	void				setRawBits( int const raw );
+	float				toFloat( void ) const;
+	int					toInt( void ) const;
+	static Fixed&		min (Fixed& a, Fixed& b);
+	static const Fixed&	min (const Fixed& a, const Fixed& b);
+	static Fixed&		max (Fixed& a, Fixed& b);
+	static const Fixed&	max (const Fixed& a, const Fixed& b);
 
 private:
 
