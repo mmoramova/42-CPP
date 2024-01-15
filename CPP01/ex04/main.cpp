@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 21:19:08 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/13 16:06:34 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/01/15 18:22:06 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,14 @@ int main(int argc, char **argv)
 	}
 	infile.close();
 
-	while ( (pos = infileText.find(s1, pos)) != std::string::npos )
+	if (s1.length() > 0)
 	{
-		infileText.erase(pos,s1.length());
-		infileText.insert(pos,s2);
-		pos += s2.length();
+		while ( (pos = infileText.find(s1, pos)) != std::string::npos )
+		{
+			infileText.erase(pos,s1.length());
+			infileText.insert(pos,s2);
+			pos += s2.length();
+		}
 	}
 	std::ofstream outfile (fileName + ".replace");
 	outfile << infileText;
