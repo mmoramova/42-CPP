@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 12:26:07 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/21 13:12:55 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/01/21 15:37:33 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ public:
 	Fixed operator-(const Fixed &base) const;
 	Fixed operator*(const Fixed &base) const;
 	Fixed operator/(const Fixed &base) const;
-
 
 	Fixed operator++(int);
 	Fixed &operator++(void);

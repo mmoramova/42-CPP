@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 12:27:03 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/21 13:03:01 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:00:26 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ class Point {
 public:
 
 	Point(void);
-	Point(Fixed const x, Fixed const y);
+	Point(const float x, const float y);
 	Point(Point const &copy);
-	Point &operator=(Point &base);
+	Point &operator=(Point const &base);
 	~Point(void);
 
-	const Fixed& getX(void) const;
-	const Fixed& getY(void) const;
+	Fixed getX(void) const;
+	Fixed getY(void) const;
 
 private:
 
@@ -36,5 +36,8 @@ private:
 	Fixed const	_y;
 
 };
+
+std::ostream& operator<<(std::ostream &out, const Point &base);
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif

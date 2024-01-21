@@ -6,45 +6,45 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 12:25:48 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/21 13:12:42 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:18:16 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 Fixed::Fixed(void) : _fixedPointNbr(0) {
-	std::cout << "Default constructor called" << std::endl;
+	//std::cout << "Default constructor called" << std::endl;
 	return;
 }
 
 Fixed::Fixed(int const intNbr) {
-	std::cout << "Int constructor called" << std::endl;
+	//std::cout << "Int constructor called" << std::endl;
 	this->_fixedPointNbr = intNbr << _fractionalBits;
 	return;
 }
 
 Fixed::Fixed(float const floatNbr) {
-	std::cout << "Float constructor called" << std::endl;
+	//std::cout << "Float constructor called" << std::endl;
 	this->_fixedPointNbr = (roundf)(floatNbr * (1 << _fractionalBits));
 	return;
 }
 
 Fixed::Fixed(Fixed const &copy) {
-	std::cout << "Copy constructor called" << std::endl;
+	//std::cout << "Copy constructor called" << std::endl;
 	this->_fixedPointNbr = copy.getRawBits();
 	return;
 }
 
 Fixed &Fixed::operator=(Fixed const &base) {
-	std::cout << "Copy assignment operator called" << std::endl;
+	//std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &base) {
-		_fixedPointNbr = base.getRawBits();
+		this->_fixedPointNbr = base.getRawBits();
 	}
 	return (*this);
 }
 
 Fixed::~Fixed(void) {
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 	return;
 }
 
