@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 17:47:00 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/22 17:34:38 by mmoramov         ###   ########.fr       */
+/*   Created: 2024/01/22 17:20:51 by mmoramov          #+#    #+#             */
+/*   Updated: 2024/01/22 17:20:53 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ public:
 	void			takeDamage(unsigned int amount);
 	void			beRepaired(unsigned int amount);
 
-protected:
+private:
 
 	std::string		_name;
 	unsigned int	_hitPoints;

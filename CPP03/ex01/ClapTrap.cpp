@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/21 10:06:19 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/22 18:22:54 by mmoramov         ###   ########.fr       */
+/*   Created: 2024/01/22 17:20:46 by mmoramov          #+#    #+#             */
+/*   Updated: 2024/01/22 18:22:37 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,29 +61,29 @@ ClapTrap::~ClapTrap(void) {
 }
 
 void ClapTrap::setName( std::string name ) {
-	std::cout << "\033[34mClapTrap " << getName() << " \033[0m";
-	std::cout << "name set to " << name << std::endl;
+	//std::cout << "\033[34mClapTrap " << getName() << " \033[0m";
+	//std::cout << "name set to " << name << std::endl;
 	this->_name = name;
 	return;
 }
 
 void ClapTrap::setHitPoints( unsigned int hitPoints ) {
-	std::cout << "\033[34mClapTrap " << getName() << " \033[0m";
-	std::cout << "hit points set to " << hitPoints << std::endl;
+	//std::cout << "\033[34mClapTrap " << getName() << " \033[0m";
+	//std::cout << "hit points set to " << hitPoints << std::endl;
 	this->_hitPoints = hitPoints;
 	return;
 }
 
 void ClapTrap::setAttackDamage( unsigned int attackDamage ) {
-	std::cout << "\033[34mClapTrap " << getName() << " \033[0m";
-	std::cout << "attack damage set to " << attackDamage << std::endl;
+	//std::cout << "\033[34mClapTrap " << getName() << " \033[0m";
+	//std::cout << "attack damage set to " << attackDamage << std::endl;
 	this->_attackDamage = attackDamage;
 	return;
 }
 
 void ClapTrap::setEnergyPoints( unsigned int energyPoints ) {
-	std::cout << "\033[34mClapTrap " << getName() << " \033[0m";
-	std::cout << "energy points set to " << energyPoints << std::endl;
+	//std::cout << "\033[34mClapTrap " << getName() << " \033[0m";
+	//std::cout << "energy points set to " << energyPoints << std::endl;
 	this->_energyPoints = energyPoints;
 	return;
 }
