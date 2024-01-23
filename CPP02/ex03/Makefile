@@ -6,13 +6,13 @@
 #    By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/21 12:25:25 by mmoramov          #+#    #+#              #
-#    Updated: 2024/01/21 12:54:11 by mmoramov         ###   ########.fr        #
+#    Updated: 2024/01/23 17:25:38 by mmoramov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fixed
 CC = c++
-C_FLAGS = -Wall -Wextra -Werror -MMD -std=c++98
+C_FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 -pedantic
 RM = rm -f
 
 #------------------------------SOURCES-----------------------------------------#
