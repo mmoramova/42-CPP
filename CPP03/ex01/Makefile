@@ -6,13 +6,13 @@
 #    By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 17:21:01 by mmoramov          #+#    #+#              #
-#    Updated: 2024/01/22 17:35:21 by mmoramov         ###   ########.fr        #
+#    Updated: 2024/01/23 17:26:20 by mmoramov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = scavTrap
 CC = c++
-C_FLAGS = -Wall -Wextra -Werror -MMD -std=c++98
+C_FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 -pedantic
 RM = rm -f
 
 #------------------------------SOURCES-----------------------------------------#
