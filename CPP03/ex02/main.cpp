@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 17:20:56 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/22 18:27:49 by mmoramov         ###   ########.fr       */
+/*   Created: 2024/01/23 17:49:56 by mmoramov          #+#    #+#             */
+/*   Updated: 2024/01/23 18:13:15 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "FlagTrap.hpp"
 
 int main (void)
 {
@@ -18,6 +19,7 @@ int main (void)
 	ScavTrap B;
 	B.setName("B");
 	ClapTrap C("X");
+	FlagTrap D("D");
 
 	A.attack("I");
 	A.attack("I");
@@ -27,12 +29,17 @@ int main (void)
 	A.beRepaired(1);
 
 	A.guardGate();
-	B = A;
+	//B = A;
 	B.setName("B");
 	A.attack("I");
 	B.attack("I");
 	//C.guardGate();
-	//ScavTrap D ("X", 10, 10, 10);
+	D.attack("a");
+	D.beRepaired(20);
+	D.highFivesGuys();
+	
+
+	// D ("X", 10, 10, 10);
 
 	return (0);
 }

@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/22 17:21:01 by mmoramov          #+#    #+#              #
-#    Updated: 2024/01/23 17:26:13 by mmoramov         ###   ########.fr        #
+#    Created: 2024/01/23 17:50:04 by mmoramov          #+#    #+#              #
+#    Updated: 2024/01/23 17:57:39 by mmoramov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scavTrap
+NAME = flagTrap
 CC = c++
 C_FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 -pedantic
 RM = rm -f
 
 #------------------------------SOURCES-----------------------------------------#
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC = main.cpp ClapTrap.cpp FlagTrap.cpp ScavTrap.cpp
 
 F_OBJ = obj/
 OBJ = $(addprefix $(F_OBJ), $(SRC:.cpp=.o))
