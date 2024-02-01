@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:27:43 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/22 18:27:45 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/01/27 18:32:19 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ public:
 	void			takeDamage(unsigned int amount);
 	void			beRepaired(unsigned int amount);
 
-private:
+protected:
 
 	std::string		_name;
 	unsigned int	_hitPoints;

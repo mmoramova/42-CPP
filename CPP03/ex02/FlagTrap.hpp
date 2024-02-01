@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:51:06 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/23 18:15:56 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/01/23 19:14:56 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ public:
 	FlagTrap &operator=(FlagTrap const &base);
 	~FlagTrap(void);
 
-	void attack(const std::string& target);
 	void highFivesGuys();
 
 private:

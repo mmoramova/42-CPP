@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:50:56 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/23 18:15:43 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/01/23 19:14:46 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,6 @@ FlagTrap::~FlagTrap(void) {
 	std::cout << "\033[0;95mFlagTrap " << getName() << " \033[0m";
 	std::cout << "FlagTrap destructor called" << std::endl;
 	return;
-}
-
-void FlagTrap::attack(const std::string& target) {
-	std::cout << "\033[0;95mFlagTrap " << getName() << " \033[0m";
-	if (this->getEnergyPoints() < 1 || this->getHitPoints() < 1)
-		std::cout << "No energy or hit points left. Not possible to attack" << std::endl;
-	else {
-		std::cout << "attacks \033[0;95m" << target << "\033[0m who lost " << this->getAttackDamage() << " points of damage" << std::endl;
-		this->setEnergyPoints(this->getEnergyPoints() - 1);
-	}
-	std::cout << *this << std::endl;
 }
 
 void FlagTrap::highFivesGuys() {
