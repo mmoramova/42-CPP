@@ -6,28 +6,27 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:50:56 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/01 17:47:41 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:15:08 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "FlagTrap.hpp"
 
-FlagTrap::FlagTrap(void) : ClapTrap("Default", 100, 100 , 30) {
-	std::cout << "\033[0;95mFlagTrap " << getName() << " \033[0m";
-	std::cout << "constructor called" << std::endl;
-	return;
-}
-
-FlagTrap::FlagTrap( std::string name) : ClapTrap(name, 100, 100 , 30) {
+FlagTrap::FlagTrap(void) : ClapTrap("Default") {
+	this->setHitPoints(_FHitPoints);
+	this->setEnergyPoints(_FEnergyPoints);
+	this->setAttackDamage(_FAttackDamage);
 	std::cout << "\033[0;95mFlagTrap " << getName() << " \033[0m";
 	std::cout << "constructor called" << std::endl;
 	std::cout << *this << std::endl;
 	return;
 }
 
-FlagTrap::FlagTrap( std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage) :
-					ClapTrap(name, hitPoints, energyPoints, attackDamage) {
+FlagTrap::FlagTrap( std::string name) : ClapTrap(name) {
+	this->setHitPoints(_FHitPoints);
+	this->setEnergyPoints(_FEnergyPoints);
+	this->setAttackDamage(_FAttackDamage);
 	std::cout << "\033[0;95mFlagTrap " << getName() << " \033[0m";
 	std::cout << "constructor called" << std::endl;
 	std::cout << *this << std::endl;

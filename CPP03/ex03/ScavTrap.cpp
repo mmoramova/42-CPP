@@ -6,33 +6,31 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:50:09 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/01 17:50:11 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:14:41 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) : ClapTrap("Default", 100, 50 , 20) {
-	std::cout << "\033[0;92mScavTrap " << getName() << " \033[0m";
-	std::cout << "constructor called" << std::endl;
-	return;
-}
-
-ScavTrap::ScavTrap( std::string name) : ClapTrap(name, 100, 50 , 20) {
+ScavTrap::ScavTrap(void) : ClapTrap("Default") {
+	this->setHitPoints(_SHitPoints);
+	this->setEnergyPoints(_SEnergyPoints);
+	this->setAttackDamage(_SAttackDamage);
 	std::cout << "\033[0;92mScavTrap " << getName() << " \033[0m";
 	std::cout << "constructor called" << std::endl;
 	std::cout << *this << std::endl;
 	return;
 }
 
-ScavTrap::ScavTrap( std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage) :
-					ClapTrap(name, hitPoints, energyPoints, attackDamage) {
+ScavTrap::ScavTrap( std::string name) : ClapTrap(name) {
+	this->setHitPoints(_SHitPoints);
+	this->setEnergyPoints(_SEnergyPoints);
+	this->setAttackDamage(_SAttackDamage);
 	std::cout << "\033[0;92mScavTrap " << getName() << " \033[0m";
 	std::cout << "constructor called" << std::endl;
 	std::cout << *this << std::endl;
 	return;
 }
-
 
 ScavTrap::ScavTrap(ScavTrap const &copy) {
 	this->setName(copy.getName());

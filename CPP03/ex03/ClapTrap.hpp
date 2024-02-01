@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:27:43 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/01 17:11:50 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:15:30 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class ClapTrap {
 public:
 	ClapTrap(void);
 	ClapTrap(std::string name);
-	ClapTrap( std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage);
 	ClapTrap(ClapTrap const &copy);
 	ClapTrap &operator=(ClapTrap const &base);
 	virtual ~ClapTrap(void);

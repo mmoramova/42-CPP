@@ -6,38 +6,37 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:18:28 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/01 17:49:23 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:28:48 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FlagTrap() {
-	this->_name = "Default";
+	this->setName("Default");
+	this->setHitPoints(_FHitPoints);
+	this->setEnergyPoints(_SEnergyPoints);
+	this->setAttackDamage(_FAttackDamage);
 	std::cout << "\033[0;93mDiamondTrap " << getName() << " \033[0m";
 	std::cout << "constructor called" << std::endl;
-	this->setHitPoints(FlagTrap::getHitPoints());
-	this->setEnergyPoints(ScavTrap::getEnergyPoints());
-	this->setAttackDamage(FlagTrap::getAttackDamage());
+	std::cout << *this << std::endl;
 	return;
 }
 
 DiamondTrap::DiamondTrap( std::string name) : ClapTrap(name), ScavTrap(name), FlagTrap(name) {
-
-	this->_name = name;
+	this->setName(name);
 	this->ClapTrap::_name = name + "_clap_name";
 	this->setHitPoints(_FHitPoints);
 	this->setEnergyPoints(_SEnergyPoints);
 	this->setAttackDamage(_FAttackDamage);
 	std::cout << "\033[0;93mDiamondTrap " << getName() << " \033[0m";
 	std::cout << "constructor called" << std::endl;
-
 	std::cout << *this << std::endl;
 	return;
 }
 
-
 DiamondTrap::DiamondTrap(DiamondTrap const &copy) {
+	this->ClapTrap::_name = copy.getName() + "_clap_name";
 	this->setName(copy.getName());
 	this->setHitPoints(copy.getHitPoints());
 	this->setEnergyPoints(copy.getEnergyPoints());
@@ -51,6 +50,7 @@ DiamondTrap::DiamondTrap(DiamondTrap const &copy) {
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &base) {
 	if (this != &base)
 	{
+		this->ClapTrap::_name = base.getName() + "_clap_name";
 		this->setName(base.getName());
 		this->setHitPoints(base.getHitPoints());
 		this->setEnergyPoints(base.getEnergyPoints());
@@ -68,8 +68,6 @@ DiamondTrap::~DiamondTrap(void) {
 }
 
 void DiamondTrap::setName( std::string name ) {
-	//std::cout << "\033[34mClapTrap " << getName() << " \033[0m";
-	//std::cout << "name set to " << name << std::endl;
 	this->_name = name;
 	return;
 }
@@ -80,8 +78,8 @@ std::string	DiamondTrap::getName( void ) const {
 
 void DiamondTrap::whoAmI() {
 	std::cout << "\033[0;93mDiamondTrap " << getName() << " \033[0m";
-	std::cout << "DiamondTrap name is " << DiamondTrap::_name <<
-	" and ClapTrap name is " << this->ClapTrap::_name << std::endl;
+	std::cout << "DiamondTrap name is \033[0;93m" << DiamondTrap::_name <<
+	"\033[0m and ClapTrap name is \033[0;34m" << this->ClapTrap::_name << "\033[0m" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& out, const DiamondTrap& base) {

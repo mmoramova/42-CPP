@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:51:06 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/01 17:45:06 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:24:02 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ public:
 
 	FlagTrap(void);
 	FlagTrap(std::string name);
-	FlagTrap( std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage);
 	FlagTrap(FlagTrap const &copy);
 	FlagTrap &operator=(FlagTrap const &base);
 	~FlagTrap(void);

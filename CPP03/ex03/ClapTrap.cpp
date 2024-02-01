@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:27:36 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/22 18:27:38 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:15:52 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,11 @@
 ClapTrap::ClapTrap(void) : _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 	std::cout << "\033[34mClapTrap " << getName() << " \033[0m";
 	std::cout << "constructor called" << std::endl;
-	return;
-}
-
-ClapTrap::ClapTrap( std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-	std::cout << "\033[34mClapTrap " << getName() << " \033[0m";
-	std::cout << "constructor called" << std::endl;
 	std::cout << *this << std::endl;
 	return;
 }
 
-ClapTrap::ClapTrap( std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage) :
-					_name(name), _hitPoints(hitPoints), _energyPoints(energyPoints), _attackDamage(attackDamage) {
+ClapTrap::ClapTrap( std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 	std::cout << "\033[34mClapTrap " << getName() << " \033[0m";
 	std::cout << "constructor called" << std::endl;
 	std::cout << *this << std::endl;
