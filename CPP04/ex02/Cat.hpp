@@ -15,9 +15,10 @@
 
 #include <iomanip>
 #include <iostream>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 
-class Cat : public Animal {
+class Cat : public AAnimal {
 
 public:
 	Cat(void);
@@ -25,10 +26,12 @@ public:
 	Cat &operator=(Cat const &base);
 	~Cat(void);
 
-	void	makeSound(void) const;
+	void		makeSound(void) const;
+	void		setIdea(int i, std::string idea);
+	std::string	getIdea(int i) const;
 
 private:
-
+	Brain *catBrain;
 };
 
 std::ostream& operator<<(std::ostream& out, const Cat& base);

@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 19:08:17 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/02 19:13:52 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/02 19:42:03 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 
 	void	makeSound(void) const;
 
-protected:
+private:
 
 };
 

@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                         :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 18:39:04 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/01 18:43:48 by mmoramov         ###   ########.fr       */
+/*   Created: 2024/02/02 19:08:17 by mmoramov          #+#    #+#             */
+/*   Updated: 2024/02/02 19:42:19 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Cat_H
-# define Cat_H
+#ifndef WrongCat_H
+# define WrongCat_H
 
 #include <iomanip>
 #include <iostream>
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Cat : public Animal {
+class WrongCat : public WrongAnimal {
 
 public:
-	Cat(void);
-	Cat(Cat const &copy);
-	Cat &operator=(Cat const &base);
-	~Cat(void);
+	WrongCat(void);
+	WrongCat(WrongCat const &copy);
+	WrongCat &operator=(WrongCat const &base);
+	~WrongCat(void);
 
 	void	makeSound(void) const;
 
@@ -31,6 +31,6 @@ private:
 
 };
 
-std::ostream& operator<<(std::ostream& out, const Cat& base);
+std::ostream& operator<<(std::ostream& out, const WrongCat& base);
 
 #endif

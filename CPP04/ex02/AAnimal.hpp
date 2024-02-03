@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                         :+:      :+:    :+:   */
+/*   AAAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:39:04 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/01 18:43:48 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/03 13:16:39 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Cat_H
-# define Cat_H
+#ifndef AAnimal_H
+# define AAnimal_H
 
 #include <iomanip>
 #include <iostream>
-#include "Animal.hpp"
 
-class Cat : public Animal {
+class AAnimal {
 
 public:
-	Cat(void);
-	Cat(Cat const &copy);
-	Cat &operator=(Cat const &base);
-	~Cat(void);
+	AAnimal(void);
+	AAnimal(std::string type);
+	AAnimal(AAnimal const &copy);
+	AAnimal &operator=(AAnimal const &base);
+	virtual ~AAnimal(void);
 
-	void	makeSound(void) const;
+	virtual void	makeSound(void) const = 0;
+	void			setType(std::string type);
+	std::string		getType (void) const;
 
-private:
+protected:
+
+	std::string		_type;
 
 };
 
-std::ostream& operator<<(std::ostream& out, const Cat& base);
+std::ostream& operator<<(std::ostream& out, const AAnimal& base);
 
 #endif

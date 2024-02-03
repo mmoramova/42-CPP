@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:39:04 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/01 18:43:48 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/02 18:23:35 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Cat_H
-# define Cat_H
+#ifndef Brain_H
+# define Brain_H
 
 #include <iomanip>
 #include <iostream>
-#include "Animal.hpp"
 
-class Cat : public Animal {
+class Brain {
 
 public:
-	Cat(void);
-	Cat(Cat const &copy);
-	Cat &operator=(Cat const &base);
-	~Cat(void);
+	Brain(void);
+	Brain(Brain const &copy);
+	Brain &operator=(Brain const &base);
+	virtual ~Brain(void);
 
-	void	makeSound(void) const;
+	void			setIdea(int i, std::string idea);
+	std::string		getIdea(int i) const;
 
 private:
 
-};
+	std::string		_ideas[100];
 
-std::ostream& operator<<(std::ostream& out, const Cat& base);
+};
 
 #endif
