@@ -41,10 +41,6 @@ AAnimal::~AAnimal(void) {
 	return;
 }
 
-void AAnimal::makeSound(void) const {
-	std::cout << "AAnimal sound" << std::endl;
-}
-
 void AAnimal::setType( std::string type ) {
 	std::cout << "AAnimal type set to: " << type << std::endl;
 	this->_type = type;

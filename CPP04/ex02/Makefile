@@ -6,7 +6,7 @@
 #    By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 17:03:43 by mmoramov          #+#    #+#              #
-#    Updated: 2024/02/03 13:14:53 by mmoramov         ###   ########.fr        #
+#    Updated: 2024/02/04 16:52:37 by mmoramov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ C_FLAGS = -Wall -Wextra -Werror -Wshadow -MMD -std=c++98 -pedantic
 RM = rm -f
 
 #------------------------------SOURCES-----------------------------------------#
-SRC = main.cpp AAnimal.cpp Dog.cpp Cat.cpp Brain.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp AAnimal.cpp Dog.cpp Cat.cpp Brain.cpp
 
 F_OBJ = obj/
 OBJ = $(addprefix $(F_OBJ), $(SRC:.cpp=.o))

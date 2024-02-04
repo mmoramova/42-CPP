@@ -6,19 +6,17 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:38:05 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/03 13:12:08 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 16:57:39 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
 int main (void)
 {
-	/*const Animal* meta = new Animal();
+	const Animal* meta = new Animal();
 	const Animal* dog = new Dog();
 	const Animal* cat = new Cat();
 
@@ -31,10 +29,10 @@ int main (void)
 
 	delete dog;
 	delete cat;
-	delete meta;*/
+	delete meta;
 
 	/*------------------------------------------*/
-	int N = 20;
+	/*int N = 20;
 
 	Animal *Animals[20];
 
@@ -51,7 +49,7 @@ int main (void)
 
 	for (int i = 0; i < N; i++) {
 		delete Animals[i];
-	}
+	}*/
 	/*------------------------------------------*/
 	/*Dog dog1;
 

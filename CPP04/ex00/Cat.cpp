@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:46:15 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/04 15:20:16 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 15:24:56 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Cat::Cat(Cat const &copy) {
 Cat &Cat::operator=(Cat const &base) {
 	if (this != &base)
 	{
-		this->_type = base._type;;
+		this->_type = base._type;
 	}
 	std::cout << "Cat copy assignment operator called" << std::endl;
 	return *this;

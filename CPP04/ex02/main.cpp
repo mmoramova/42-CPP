@@ -6,15 +6,13 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:38:05 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/03 13:25:53 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 16:53:57 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
 int main (void)
 {
