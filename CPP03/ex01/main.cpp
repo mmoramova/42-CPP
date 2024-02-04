@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:20:56 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/22 18:27:23 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 14:56:00 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int main (void)
 {
-	ScavTrap A("M");
+	ScavTrap A("A");
 	ScavTrap B;
 	B.setName("B");
-	ClapTrap C("X");
+	ClapTrap C("C");
 
 	A.attack("I");
 	A.attack("I");
@@ -28,11 +28,10 @@ int main (void)
 
 	A.guardGate();
 	B = A;
-	B.setName("B");
+	B.setName("BB");
 	A.attack("I");
 	B.attack("I");
 	//C.guardGate();
-	//ScavTrap D ("X", 10, 10, 10);
 
 	return (0);
 }

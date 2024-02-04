@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:46:43 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/22 17:19:34 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 14:56:10 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main (void)
 {
-	ClapTrap A("J");
+	ClapTrap A("A");
 	ClapTrap B;
 	B.setName("B");
 
@@ -22,10 +22,8 @@ int main (void)
 	A.setAttackDamage(2);
 	A.attack("I");
 	A.takeDamage(1);
-	A.takeDamage(1);
+	A.takeDamage(2);
 	A.beRepaired(1);
-
-	ClapTrap C ("X", 10, 10, 10);
 
 	return (0);
 }

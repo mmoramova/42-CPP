@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:22:00 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/22 17:36:00 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 14:47:30 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ public:
 
 	ScavTrap(void);
 	ScavTrap(std::string name);
-	ScavTrap( std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage);
 	ScavTrap(ScavTrap const &copy);
 	ScavTrap &operator=(ScavTrap const &base);
 	~ScavTrap(void);
@@ -32,7 +31,6 @@ public:
 	void guardGate();
 
 private:
-
 
 };
 

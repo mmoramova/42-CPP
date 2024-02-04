@@ -6,11 +6,11 @@
 #    By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 19:16:51 by mmoramov          #+#    #+#              #
-#    Updated: 2024/01/27 17:52:14 by mmoramov         ###   ########.fr        #
+#    Updated: 2024/02/04 15:04:41 by mmoramov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = flagTrap
+NAME = diamondTrap
 CC = c++
 C_FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 -pedantic
 RM = rm -f

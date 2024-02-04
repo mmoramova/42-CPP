@@ -6,10 +6,9 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:18:37 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/01 17:48:40 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 15:08:28 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef DiamondTrap_H
 # define DiamondTrap_H
@@ -41,6 +40,5 @@ private:
 };
 
 std::ostream& operator<<(std::ostream& out, const DiamondTrap& base);
-
 
 #endif

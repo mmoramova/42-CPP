@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:50:13 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/01 18:14:47 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 15:03:31 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ protected:
 	unsigned int static const	_SHitPoints = 100;
 	unsigned int static const	_SEnergyPoints = 50;
 	unsigned int static const	_SAttackDamage = 20;
-
 
 };
 

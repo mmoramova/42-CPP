@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:20:46 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/22 18:22:37 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 14:51:24 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 ClapTrap::ClapTrap(void) : _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 	std::cout << "\033[34mClapTrap " << getName() << " \033[0m";
 	std::cout << "constructor called" << std::endl;
+	std::cout << *this << std::endl;
 	return;
 }
 
@@ -118,7 +119,7 @@ void ClapTrap::attack(const std::string& target) {
 void ClapTrap::takeDamage(unsigned int amount) {
 	std::cout << "\033[34mClapTrap " << getName() << " \033[0m";
 	if (this->getEnergyPoints() < 1 || this->getHitPoints() < 1)
-		std::cout << "No energy or hit points left. Not possible to attack" << std::endl;
+		std::cout << "No energy or hit points left. Not possible to take damage" << std::endl;
 	else if (this->getHitPoints() - amount < 0) {
 		std::cout << "took damage and lost " << this->getHitPoints() << " of hit points" << std::endl;
 		this->_hitPoints = 0;
@@ -136,7 +137,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
 		std::cout << "No energy or hit points left. Not possible to repair" << std::endl;
 	else {
 		this->_hitPoints = this->getHitPoints() + amount;
-		this->setEnergyPoints(this->getEnergyPoints() - 1);
+		this->_energyPoints = this->getEnergyPoints() - 1;
 		std::cout << "repairs itself and gets " << amount << " hit points back" << std::endl;
 	}
 	std::cout << *this << std::endl;

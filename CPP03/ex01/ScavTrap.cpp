@@ -6,33 +6,25 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:21:51 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/01/22 18:21:53 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 14:50:02 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) : ClapTrap("Default", 100, 50 , 20) {
-	std::cout << "\033[0;92mScavTrap " << getName() << " \033[0m";
-	std::cout << "constructor called" << std::endl;
-	return;
-}
-
-ScavTrap::ScavTrap( std::string name) : ClapTrap(name, 100, 50 , 20) {
+ScavTrap::ScavTrap(void) : ClapTrap("Default", 100, 50, 20) {
 	std::cout << "\033[0;92mScavTrap " << getName() << " \033[0m";
 	std::cout << "constructor called" << std::endl;
 	std::cout << *this << std::endl;
 	return;
 }
 
-ScavTrap::ScavTrap( std::string name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage) :
-					ClapTrap(name, hitPoints, energyPoints, attackDamage) {
+ScavTrap::ScavTrap( std::string name) : ClapTrap(name, 100, 50, 20) {
 	std::cout << "\033[0;92mScavTrap " << getName() << " \033[0m";
 	std::cout << "constructor called" << std::endl;
 	std::cout << *this << std::endl;
 	return;
 }
-
 
 ScavTrap::ScavTrap(ScavTrap const &copy) {
 	this->setName(copy.getName());
