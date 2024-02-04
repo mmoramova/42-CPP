@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 19:07:11 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/02 19:48:08 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 15:21:25 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ WrongCat::WrongCat(WrongCat const &copy) {
 WrongCat &WrongCat::operator=(WrongCat const &base) {
 	if (this != &base)
 	{
-		this->setType(base.getType());
+		this->_type = base._type;
 	}
 	std::cout << "WrongCat copy assignment operator called" << std::endl;
 	return *this;

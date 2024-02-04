@@ -30,7 +30,7 @@ AAnimal::AAnimal(AAnimal const &copy) : _type(copy._type) {
 AAnimal &AAnimal::operator=(AAnimal const &base) {
 	if (this != &base)
 	{
-		this->setType(base.getType());
+		this->_type = base._type;
 	}
 	std::cout << "AAnimal copy assignment operator called" << std::endl;
 	return *this;

@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:46:37 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/03 13:17:17 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 15:21:11 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Dog::Dog(Dog const &copy) {
 Dog &Dog::operator=(Dog const &base) {
 	if (this != &base)
 	{
-		this->setType(base.getType());
+		this->_type = base._type;
 	/*	if (this->dogBrain)
 			delete this->dogBrain;
 		if (base.dogBrain)
