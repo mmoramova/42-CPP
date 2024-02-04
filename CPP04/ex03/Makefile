@@ -6,7 +6,7 @@
 #    By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/03 13:28:06 by mmoramov          #+#    #+#              #
-#    Updated: 2024/02/03 18:26:07 by mmoramov         ###   ########.fr        #
+#    Updated: 2024/02/04 17:10:01 by mmoramov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ C_FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 -pedantic
 RM = rm -f
 
 #------------------------------SOURCES-----------------------------------------#
-SRC = main.cpp AMateria.cpp Ice.cpp Character.cpp MateriaSource.cpp
+SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 
 F_OBJ = obj/
 OBJ = $(addprefix $(F_OBJ), $(SRC:.cpp=.o))

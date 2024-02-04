@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:57:16 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/03 18:43:35 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 17:23:01 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,16 @@ Character::Character(std::string name) : _name(name) {
 
 Character::Character(Character const &copy) {
 	std::cout << "Character copy constructor called" << std::endl;
-	//copy inventory
-	/*During copy, the Materias of a Character must be deleted before the new ones are added
-to their inventory*/
-	*this = copy;
+	this->_name = copy._name;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+		if (copy._inventory[i])
+				this->_inventory[i] = copy._inventory[i]->clone();
+		else
+			NULL;
+	}
 	return;
 }
 
@@ -42,17 +48,11 @@ Character &Character::operator=(Character const &base) {
 		for (int i = 0; i < 4; i++)
 		{
 			delete this->_inventory[i];
-			if (this->_inventory[i] =)
+			if (base._inventory[i])
+					this->_inventory[i] = base._inventory[i]->clone();
+			else
+				NULL;
 		}
-		//r copying arrays, you need to loop through each element.
-		/*for (int i = 0; i < 4; i++) {
-    delete this->_inventory[i];
-    this->_inventory[i] = base._inventory[i] ? base._inventory[i]->clone() : nullptr;
-}*/
-
-/*During copy, the Materias of a Character must be deleted before the new ones are added
-to their inventory*/
-		*this->_inventory = *base._inventory;
 	}
 	std::cout << "Character copy assignment operator called" << std::endl;
 	return *this;

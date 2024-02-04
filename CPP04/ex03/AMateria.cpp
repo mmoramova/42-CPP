@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:38:33 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/03 18:44:21 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 17:07:04 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void AMateria::setType(std::string type) {
 }
 
 std::string const & AMateria::getType() const {
-	//Returns the materia type
 	return(this->_type);
 }
 
