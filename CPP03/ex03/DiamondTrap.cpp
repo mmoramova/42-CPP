@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:18:28 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/01 18:28:48 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 16:40:31 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ DiamondTrap::DiamondTrap( std::string name) : ClapTrap(name), ScavTrap(name), Fl
 	return;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const &copy) {
+DiamondTrap::DiamondTrap(DiamondTrap const &copy) : ClapTrap(getName() + "_clap_name"), ScavTrap(getName()), FlagTrap(getName()) {
 	this->ClapTrap::_name = copy.getName() + "_clap_name";
 	this->setName(copy.getName());
 	this->setHitPoints(copy.getHitPoints());

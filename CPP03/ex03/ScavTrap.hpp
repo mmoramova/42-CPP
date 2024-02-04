@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 17:50:13 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/04 15:03:31 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/04 16:34:58 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	ScavTrap(std::string name);
 	ScavTrap(ScavTrap const &copy);
 	ScavTrap &operator=(ScavTrap const &base);
-	~ScavTrap(void);
+	virtual ~ScavTrap(void);
 
 	void attack(const std::string& target);
 	void guardGate();
