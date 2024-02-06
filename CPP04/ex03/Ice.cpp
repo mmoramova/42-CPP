@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:29:15 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/04 17:08:42 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:19:26 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ Ice &Ice::operator=(Ice const &base) {
 	if (this != &base)
 	{
 		this->_type = base._type;
-		;
 	}
 	std::cout << "Ice copy assignment operator called" << std::endl;
 	return *this;

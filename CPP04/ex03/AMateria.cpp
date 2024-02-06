@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:38:33 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/04 17:07:04 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:23:38 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,5 @@ std::string const & AMateria::getType() const {
 }
 
 void AMateria::use(ICharacter& target) {
-	std::cout << "* TODO" << target.getName() << " *" << std::endl;
+	std::cout << "* AMateria use" << target.getName() << " *" << std::endl;
 }

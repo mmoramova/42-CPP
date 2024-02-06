@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 17:09:19 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/04 17:09:49 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:19:22 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ Cure &Cure::operator=(Cure const &base) {
 	if (this != &base)
 	{
 		this->_type = base._type;
-		;
 	}
 	std::cout << "Cure copy assignment operator called" << std::endl;
 	return *this;
