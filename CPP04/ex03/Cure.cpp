@@ -6,18 +6,18 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 17:09:19 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/06 18:19:22 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/08 18:35:51 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure(void) : AMateria("Cure") {
+Cure::Cure(void) : AMateria("cure") {
 	std::cout << "Cure default constructor called" << std::endl;
 	return;
 }
 
-Cure::Cure(Cure const &copy) : AMateria("Cure") {
+Cure::Cure(Cure const &copy) : AMateria("cure") {
 	std::cout << "Cure copy constructor called" << std::endl;
 	*this = copy;
 	return;

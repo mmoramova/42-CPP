@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:57:16 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/04 17:23:01 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/08 18:36:59 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Character::Character(Character const &copy) {
 		if (copy._inventory[i])
 				this->_inventory[i] = copy._inventory[i]->clone();
 		else
-			NULL;
+			this->_inventory[i] = NULL;
 	}
 	return;
 }
@@ -51,7 +51,7 @@ Character &Character::operator=(Character const &base) {
 			if (base._inventory[i])
 					this->_inventory[i] = base._inventory[i]->clone();
 			else
-				NULL;
+				this->_inventory[i] = NULL;
 		}
 	}
 	std::cout << "Character copy assignment operator called" << std::endl;
@@ -61,7 +61,10 @@ Character &Character::operator=(Character const &base) {
 Character::~Character(void) {
 	std::cout << "Character destructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
+	{
 		delete this->_inventory[i];
+		this->_inventory[i] = NULL;
+	}
 	return;
 }
 

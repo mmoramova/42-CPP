@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 18:05:34 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/04 17:24:07 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/08 18:38:00 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ MateriaSource::MateriaSource(MateriaSource const &copy) {
 		if (copy._inventory[i])
 				this->_inventory[i] = copy._inventory[i]->clone();
 		else
-			NULL;
+			this->_inventory[i] = NULL;
 	}
 	return;
 }
@@ -42,7 +42,7 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &base) {
 			if (base._inventory[i])
 					this->_inventory[i] = base._inventory[i]->clone();
 			else
-				NULL;
+				this->_inventory[i] = NULL;
 		}
 	}
 	std::cout << "MateriaSource copy assignment operator called" << std::endl;
@@ -51,8 +51,11 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &base) {
 
 MateriaSource::~MateriaSource(void) {
 	std::cout << "MateriaSource destructor called" << std::endl;
-	for (int i = 0; i < 4; i++) //???
+	for (int i = 0; i < 4; i++)
+	{
 		delete this->_inventory[i];
+		this->_inventory[i] = NULL;
+	}
 	return;
 }
 
