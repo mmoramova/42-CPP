@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:29:46 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/11 14:08:48 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/11 19:05:44 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,11 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const {
 }
 
 std::ostream& operator<<(std::ostream& out, const PresidentialPardonForm& base) {
+	out << "\033[0;95m" << std::endl;
 	out << base.getName() << " is signed: " << base.getIsSigned() << "." << std::endl;
 	out << base.getName() << " grade to sign: " << base.getGradeToSign() << "." << std::endl;
 	out << base.getName() << " grade to execute: " << base.getGradeToExecute() << "." << std::endl;
 	out << base.getName() << " target: " << base.getTarget() << "." << std::endl;
+	out << "\033[0;39m";
 	return out;
 }

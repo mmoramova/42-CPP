@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:53:23 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/11 14:09:23 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/11 19:05:36 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,20 @@ std::string	RobotomyRequestForm::getTarget(void) const {
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 	AForm::executeCheck(executor);
-	//todo
-	std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	std::cout << "*** SOME DRILLING NOISE ***" << std::endl;
+	srand(time(0));
+	if (rand() % 2)
+		std::cout << getTarget() << " has been robotomized successfully." << std::endl;
+	else
+		std::cout << getTarget() << " has not been robotomized." << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& out, const RobotomyRequestForm& base) {
+	out << "\033[0;92m" << std::endl;
 	out << base.getName() << " is signed: " << base.getIsSigned() << "." << std::endl;
 	out << base.getName() << " grade to sign: " << base.getGradeToSign() << "." << std::endl;
 	out << base.getName() << " grade to execute: " << base.getGradeToExecute() << "." << std::endl;
 	out << base.getName() << " target: " << base.getTarget() << "." << std::endl;
+	out << "\033[0;39m";
 	return out;
 }

@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:12:45 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/11 13:53:59 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/11 19:10:11 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <iomanip>
 #include <iostream>
 #include <exception>
+#include <fstream>
+#include <string>
 #include "AForm.hpp"
 
 class ShrubberyCreationForm : public AForm {
