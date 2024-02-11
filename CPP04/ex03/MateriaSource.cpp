@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 18:05:34 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/11 08:55:42 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/11 09:32:16 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ MateriaSource::~MateriaSource(void) {
 void MateriaSource::learnMateria(AMateria *m) {
 	if (!m)
 	{
-		//std::cout << "Error: no AMateria" << std::endl;
+		std::cout << "Error: no AMateria" << std::endl;
 		return;
 	}
 	for (int i = 0; i < 4; i++)
@@ -79,4 +79,20 @@ AMateria* MateriaSource::createMateria(std::string const & type) {
 		}
 	}
 	return 0;
+}
+
+std::string const & MateriaSource::getInventoryType(int idx) const {
+	static const std::string emptyStr;
+
+	if (this->_inventory[idx])
+		return (this->_inventory[idx]->getType());
+	return emptyStr;
+}
+
+std::ostream& operator<<(std::ostream& out, const MateriaSource& base) {
+	for (int i = 0; i < 4; i++)
+	{
+		std::cout << "\033[34mMateriaSource inventory [" << i << "] " << base.getInventoryType(i) << "\033[0m" << std::endl;
+	}
+	return out;
 }

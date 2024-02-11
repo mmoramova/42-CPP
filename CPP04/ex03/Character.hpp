@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:49:04 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/03 18:12:35 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/11 09:13:28 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,14 @@ class Character : public ICharacter
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
+		std::string const & getInventoryType(int idx) const;
 
 	private:
 		std::string _name;
 		AMateria 	*_inventory[4];
 
 };
+
+std::ostream& operator<<(std::ostream& out, const Character& base);
 
 #endif

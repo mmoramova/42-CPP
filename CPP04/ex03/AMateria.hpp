@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:38:44 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/04 17:06:40 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/11 09:31:40 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "ICharacter.hpp"
 #include "Character.hpp"
 
-class ICharacter; //circular dependency
+class ICharacter;
 class IMateriaSource;
 
 class AMateria

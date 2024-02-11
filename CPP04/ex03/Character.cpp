@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:57:16 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/08 19:33:32 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/11 09:31:48 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,14 @@ std::string const & Character::getName() const {
 void Character::equip(AMateria* m) {
 	if (!m)
 	{
-		//std::cout << "Error: no AMateria" << std::endl;
+		std::cout << "Error: no AMateria" << std::endl;
 		return;
 	}
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i] == m)
 		{
-			//std::cout << "AMateria is already equiped" << std::endl;
+			std::cout << "AMateria is already equiped" << std::endl;
 			return;
 		}
 	}
@@ -98,4 +98,20 @@ void Character::unequip(int idx) {
 void Character::use(int idx, ICharacter& target) {
 	if (idx >= 0 && idx < 4 && this->_inventory[idx])
 		this->_inventory[idx]->use(target);
+}
+
+std::string const & Character::getInventoryType(int idx) const {
+	static const std::string emptyStr;
+
+	if (this->_inventory[idx])
+		return (this->_inventory[idx]->getType());
+	return emptyStr;
+}
+
+std::ostream& operator<<(std::ostream& out, const Character& base) {
+	for (int i = 0; i < 4; i++)
+	{
+		std::cout << "\033[0;92mCharacter " << base.getName() << " inventory [" << i << "] " << base.getInventoryType(i) << "\033[0m" << std::endl;
+	}
+	return out;
 }
