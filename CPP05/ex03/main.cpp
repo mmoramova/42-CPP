@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 18:41:58 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/15 18:25:13 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:16:18 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ int main (void)
 			A.signForm(*nf);
 			A.executeForm(*nf);
 		}
+
+		delete rrf;
+		delete scf;
+		delete ppf;
+		delete nf;
 
 	}
 	catch (std::exception & e)
