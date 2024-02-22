@@ -6,13 +6,13 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 18:41:28 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/02/11 20:00:23 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/02/22 19:05:24 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void) {
+Bureaucrat::Bureaucrat(void) : _name("NoName"), _grade(150) {
 	std::cout << "Bureaucrat default constructor called" << std::endl;
 	return;
 }
@@ -22,12 +22,13 @@ Bureaucrat::Bureaucrat( std::string name) : _name(name), _grade(150) {
 	return;
 }
 
-Bureaucrat::Bureaucrat( std::string name, int grade) : _name(name), _grade(grade) {
+Bureaucrat::Bureaucrat( std::string name, int grade) : _name(name) {
+	setGrade(grade);
 	std::cout << "Bureaucrat constructor called" << std::endl;
 	return;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &copy) : _name(copy._name) {
+Bureaucrat::Bureaucrat(Bureaucrat const &copy) : _name(copy._name), _grade(copy._grade) {
 	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	return;
 }
