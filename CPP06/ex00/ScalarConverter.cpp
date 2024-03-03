@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:55:04 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/03/02 20:23:47 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/03/03 20:37:51 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void ScalarConverter::convert(std::string inputString) {
 	else if (isDouble(inputString))
 		convertDouble(inputString);
 	else
-		std::cerr << "Conversion failed for string: " << inputString << std::endl;
+		std::cerr << "Error: conversion failed for string " << inputString << std::endl;
 }
 
 bool ScalarConverter::isChar(std::string inputString) {
@@ -65,7 +65,7 @@ bool ScalarConverter::isInt(std::string inputString) {
 	{
 		if (i == 0 && (inputString[0] == '+' || inputString[0] == '-'))
 			continue;
-		if (!std::isdigit(inputString[i]))
+		else if (i > 0 && !std::isdigit(inputString[i]))
 			return 0;
 	}
 	return 1;
@@ -111,15 +111,28 @@ bool ScalarConverter::isSpecial(std::string inputString) {
 
 void ScalarConverter::convertInt(std::string inputString) {
 
+		int sign = 1;
 		long Value;
-		std::istringstream iss(inputString);
-		if (!(iss >> Value) || (Value < INT_MIN || Value > INT_MAX))
+		std::string posString = inputString;
+
+		if (inputString[0] == '-')
+		{
+			sign = -1;
+			posString.erase(posString.begin());
+		}
+		std::istringstream iss(posString);
+		if (!(iss >> Value) || (Value * sign < INT_MIN || Value * sign > INT_MAX))
 		{
 			std::cerr << "Conversion failed for string: " << inputString << std::endl;
 			return;
 		}
+		Value *= sign;
 		std::cout << "\033[0;95m";
-		std::cout << "char: " << ((Value >= 32 && Value <= 126) ? std::to_string(static_cast<char>(Value)) : "non displayable") << std::endl;
+		std::cout << "char: " ;
+		if (Value >= 0 && Value <= 127)
+			std::cout << ((Value >= 32 && Value <= 126) ? std::to_string(static_cast<char>(Value)) : "non displayable") << std::endl;
+		else
+			std::cout << "impossible" << std::endl;
 		std::cout << "int: " << Value << std::endl;
 		std::cout << std::fixed << std::setprecision(1) << "float: " << static_cast<float>(Value) << "f" << std::endl;
 		std::cout << "double: " << static_cast<double>(Value) << std::endl;
@@ -129,15 +142,29 @@ void ScalarConverter::convertInt(std::string inputString) {
 void ScalarConverter::convertFloat(std::string inputString) {
 
 		float Value;
-		std::istringstream iss(inputString);
-		if (!(iss >> Value) || !(Value >= FLT_MIN && Value <= FLT_MAX))
+		int sign = 1;
+		std::string posString = inputString;
+		posString.pop_back();
+
+		if (inputString[0] == '-')
+		{
+			sign = -1;
+			posString.erase(posString.begin());
+		}
+		std::istringstream iss(posString);
+		if (!(iss >> Value) || (Value > FLT_MAX))
 		{
 			std::cerr << "Conversion float failed for string: " << inputString << std::endl;
 			return;
 		}
-		int precision = inputString.size() - inputString.find('.') - 1;
+		int precision = posString.size() - posString.find('.') - 1;
+		Value *= sign;
 		std::cout << "\033[0;95m";
-		std::cout << "char: " << ((Value >= 32 && Value <= 126) ? std::to_string(static_cast<char>(Value)) : "non displayable") << std::endl;
+		std::cout << "char: " ;
+		if (Value >= 0 && Value <= 127)
+			std::cout << ((Value >= 32 && Value <= 126) ? std::to_string(static_cast<char>(Value)) : "non displayable") << std::endl;
+		else
+			std::cout << "impossible" << std::endl;
 		std::cout << "int: " << ((Value >= INT_MIN && Value <= INT_MAX) ? std::to_string(static_cast<int>(Value)) : "impossible") << std::endl;
 		std::cout << std::fixed << std::setprecision(precision) << "float: " << Value << "f" << std::endl;
 		std::cout << "double: " << static_cast<double>(Value) << std::endl;
@@ -147,18 +174,36 @@ void ScalarConverter::convertFloat(std::string inputString) {
 void ScalarConverter::convertDouble(std::string inputString) {
 
 		double Value;
+		int sign = 1;
+		std::string posString = inputString;
 
-		std::istringstream iss(inputString);
-		if (!(iss >> Value) || !(Value >= DBL_MIN && Value <= DBL_MAX))
+		if (inputString[0] == '-')
 		{
-			std::cerr << "Conversion failed for string: " << inputString << std::endl;
+			sign = -1;
+			posString.erase(posString.begin());
+		}
+		std::istringstream iss(posString);
+		if (!(iss >> Value) || (Value > DBL_MAX))
+		{
+			std::cerr << "Conversion failed for string:  " << inputString << std::endl;
 			return;
 		}
-		int precision = inputString.size() - inputString.find('.') - 1;
+		int precision = posString.size() - posString.find('.') - 1;
+		Value *= sign;
+		float fvalue = static_cast<float>(Value);
+
 		std::cout << "\033[0;95m";
-		std::cout << "char: " << ((Value >= 32 && Value <= 126) ? std::to_string(static_cast<char>(Value)) : "non displayable") << std::endl;
+		std::cout << "char: " ;
+		if (Value >= 0 && Value <= 127)
+			std::cout << ((Value >= 32 && Value <= 126) ? std::to_string(static_cast<char>(Value)) : "non displayable") << std::endl;
+		else
+			std::cout << "impossible" << std::endl;
 		std::cout << "int: " << ((Value >= INT_MIN && Value <= INT_MAX) ? std::to_string(static_cast<int>(Value)) : "impossible") << std::endl;
-		std::cout << std::fixed << std::setprecision(precision) << "float: " << ((Value >= FLT_MIN && Value <= FLT_MAX) ? std::to_string(static_cast<float>(Value))+"f" : "impossible") << std::endl;
+		std::cout << std::fixed << std::setprecision(precision) << "float: " ;
+		if (std::abs(Value) <= FLT_MAX)
+			std::cout << fvalue << "f" << std::endl;
+		else
+			std::cout << "impossible" << std::endl;
 		std::cout << "double: " << Value << std::endl;
 		std::cout << std::defaultfloat << std::setprecision(2) << "\033[0;39m";
 }
