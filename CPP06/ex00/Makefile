@@ -6,12 +6,12 @@
 #    By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/15 18:53:05 by mmoramov          #+#    #+#              #
-#    Updated: 2024/02/15 19:06:06 by mmoramov         ###   ########.fr        #
+#    Updated: 2024/03/04 17:10:00 by mmoramov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = converter
+NAME = convert
 CC = c++
 C_FLAGS = -Wall -Wextra -Werror -MMD -std=c++98 -pedantic
 RM = rm -f
