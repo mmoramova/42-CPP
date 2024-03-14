@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:43:40 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/03/13 18:19:20 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:40:05 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <iostream>
 #include <string>
 
-template <typename T> void iter(const T *array, const int N, void (*f)(T))
+template <typename T> void iter(T *array, const int N, void (*f)(T&))
 {
 	if (!array)
 		return;

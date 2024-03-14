@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:14:04 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/03/13 18:16:25 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:43:31 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ public:
 	Array &operator=(Array const &base);
 	~Array(void);
 
-	T& operator[](int index);
-	const T& operator[](int index) const;
+	T& operator[](unsigned int index);
+	const T& operator[](unsigned int index) const;
 
-	int size(void);
+	unsigned int size(void) const;
 
 	class OutOfRangeException;
 
 private:
 	T	*_array;
-	int	_size;
+	unsigned int	_size;
 
 };
 

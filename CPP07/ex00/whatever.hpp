@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 20:26:50 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/03/05 18:55:40 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:36:39 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@
 
 template <typename T> void swap(T &x, T &y)
 {
-	std::swap(x,y);
+	T temp;
+	temp = x;
+	x = y;
+	y = temp;
 }
 
 template <typename T> T min(const T x, const T y)

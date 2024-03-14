@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:58:05 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/03/13 18:17:04 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:50:07 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,33 @@
 
 #include "Array.hpp"
 
-template <class T>
+template <typename T>
 Array<T>::Array(void)
 {
 	_array = nullptr;
 	_size = 0;
 }
 
-template <class T>
+template <typename T>
 Array<T>::Array(unsigned int n)
 {
 	_size = n;
-	_array = new T[_size];
+	_array = new T[_size]();
 }
 
-template <class T>
+template <typename T>
 Array<T>::Array(Array<T> const &copy)
 {
 	_size = copy._size;
 	if (_size > 0)
-		_array = new T[_size];
-	for (int i = 0; i < _size; i++)
+		_array = new T[_size]();
+	else
+		_array = nullptr;
+	for (unsigned int i = 0; i < _size; i++)
 		_array[i] = copy._array[i];
 }
 
-template <class T>
+template <typename T>
 Array<T>& Array<T>::operator=(Array<T> const &base)
 {
 	if (this != &base)
@@ -49,8 +51,8 @@ Array<T>& Array<T>::operator=(Array<T> const &base)
 		_size = base._size;
 		if (_size > 0)
 		{
-			_array = new T[_size];
-			for (int i = 0; i < _size; i++)
+			_array = new T[_size]();
+			for (unsigned int i = 0; i < _size; i++)
 				_array[i] = base._array[i];
 		}
 		else
@@ -59,14 +61,14 @@ Array<T>& Array<T>::operator=(Array<T> const &base)
 	return *this;
 }
 
-template <class T>
+template <typename T>
 Array<T>::~Array(void)
 {
 	delete[] _array;
 }
 
-template <class T>
-T& Array<T>::operator[](int index)
+template <typename T>
+T& Array<T>::operator[](unsigned int index)
 {
 	if (index < 0 || index >= _size)
 	{
@@ -75,8 +77,8 @@ T& Array<T>::operator[](int index)
 	return _array[index];
 }
 
-template <class T>
-const T& Array<T>::operator[](int index) const
+template <typename T>
+const T& Array<T>::operator[](unsigned int index) const
 {
 	if (index < 0 || index >= _size)
 	{
@@ -85,13 +87,13 @@ const T& Array<T>::operator[](int index) const
 	return _array[index];
 }
 
-template <class T>
-int Array<T>::size(void)
+template <typename T>
+unsigned int Array<T>::size(void) const
 {
 	return(_size);
 }
 
-template <class T>
+template <typename T>
 class Array<T>::OutOfRangeException : public std::exception
 {
 	public:
