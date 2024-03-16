@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:14:04 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/03/14 17:43:31 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/03/16 14:26:15 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	Array(unsigned int n);
 	Array(Array const &copy);
 	Array &operator=(Array const &base);
-	~Array(void);
+	virtual ~Array(void);
 
 	T& operator[](unsigned int index);
 	const T& operator[](unsigned int index) const;
