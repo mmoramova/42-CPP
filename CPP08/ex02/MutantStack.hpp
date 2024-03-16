@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:25:26 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/03/16 12:05:54 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/03/16 14:26:08 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ public:
 	MutantStack(const T& value);
 	MutantStack(MutantStack const &copy);
 	MutantStack &operator=(MutantStack const &base);
-	~MutantStack(void);
+	virtual ~MutantStack(void);
 
 	iterator begin ();
 	iterator end ();

@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 19:39:13 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/03/14 19:23:31 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/03/16 14:33:30 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iomanip>
 #include <iostream>
+#include <climits>
 #include <string>
 #include <algorithm>
 #include <exception>
