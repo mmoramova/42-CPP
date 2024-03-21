@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:13:11 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/03/19 19:13:36 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/03/21 17:28:30 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ class PmergeMe {
 public:
 
 	static void sort(char **input);
+	static void firstSortVector (std::vector<int> &vec, int start, int end);
+	static void mergeVector (std::vector<int> &vec, int start, int middle, int end);
+
+	static void printVector (std::vector<int> vec);
 
 private:
 	PmergeMe(void);
@@ -30,7 +34,7 @@ private:
 	PmergeMe &operator=(PmergeMe const &base);
 	~PmergeMe(void);
 
-	static int checkInput(std::string inputString);
+	static void processInput(char *inputString, std::vector<int> &vec);
 };
 
 #endif
