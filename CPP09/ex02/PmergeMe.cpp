@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:13:02 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/07/11 18:07:18 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/08/04 19:16:04 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,99 +30,66 @@ void PmergeMe::sort(char **input) {
 
 	int i = 1;
 	std::vector<int> vec;
-
+	std::vector<int> firstVector;
+	std::vector<int> secondVector;
+	std::vector<std::pair<int, int> > pairs;
+	
 	while (input && input[i])
+		processInput(input[i++], vec);
+
+	fordJohnsonSort(vec);
+
+	std::cout << "END" << std::endl;
+	printVector(vec);
+}
+
+void PmergeMe::fordJohnsonSort(std::vector<int> &vec) {
+
+	if (vec.size() <= 1)
+		return;
+	std::vector<int> firstVector;
+	std::vector<int> secondVector;
+	std::vector<std::pair<int, int> > pairs;
+		
+	createSortedPairs(vec, pairs);
+	splitPairs(pairs, firstVector, secondVector);
+	fordJohnsonSort(secondVector);
+	vec.clear();
+	mergeVector(firstVector, secondVector, vec);
+}
+
+
+void PmergeMe::mergeVector(std::vector<int> &firstVec,std::vector<int> &secondVec, std::vector<int> &vec)
+{
+	int firstVecLength = firstVec.size();
+	int secondVecLength = secondVec.size();
+	int i = 0, j = 0;
+	while (i < firstVecLength && j < secondVecLength)
 	{
-		processInput(input[i], vec);
+		if (firstVec[i] < secondVec[j])
+		{
+			vec.push_back(firstVec[i]);
+			i++;
+		}
+		else 
+		{
+			vec.push_back(secondVec[j]);
+			j++;
+		}
+	}
+	while (i < firstVecLength)
+	{
+		vec.push_back(firstVec[i]);
 		i++;
 	}
-
-	printVector(vec);
-	firstSortVector(vec, 0, vec.size()-1);
-	//firstSortVector(vec, 0, 5);
-	//firstSortVector(vec, 6, 10);
-	printVector(vec);
-}
-
-void PmergeMe::mergeVector(std::vector<int> &vec, int start,int middle, int end) {
-
-	std::cout << "MERGING START" << std::endl;
-	printVector(vec);
-
-	int n1 = middle - start + 1;
-	int n2 = end - middle;
-	std::vector<int> vecL(n1);
-	std::vector<int> vecR(n2);
-
-	for (int i = 0; i < n1; i++)
-		left[i] = arr
-
-	for (int i = 0; i < n2; i++)
-
-	int RI = 0;
-	int LI = 0;
-	for (int i = 0; i < end - start + 1; i++)
+	while (j < secondVecLength)
 	{
-		if (RI == n2)
-		{
-			vec[i] = vecL[LI];
-			LI++;
-		}
-		else if (LI == n1)
-		{
-			vec[i] = vecR[RI];
-			RI++;
-		}
-		else if (vecR[RI] > vecL[LI])
-		{
-			vec[i] = vecL[LI];
-			LI++;
-		}
-		else
-		{
-			vec[i] = vecR[RI];
-			RI++;
-		}
+		vec.push_back(secondVec[j]);
+		j++;
 	}
-
-
-	std::cout << "MERGING END" << std::endl;
-	printVector(vec);
-
-}
-
-void PmergeMe::firstSortVector(std::vector<int> &vec, int start, int end) {
-
-	std::cout << "before" << std::endl;
-	printVector(vec);
-
-	if (end - start > 1)
-	{
-		int middle = (start + end) / 2;
-
-		std::cout << "start is" << start << std::endl;
-		std::cout << "middle is" << middle << std::endl;
-		std::cout << "end is" << end << std::endl;
-
-		firstSortVector(vec, start, middle);
-		firstSortVector(vec, middle+1, end);
-		mergeVector(vec, start, middle, end);
-	}
-	else if (vec[end] < vec[start])
-	{
-		std::cout << "lets swap" << vec[start] << " and " << vec[end] << std::endl;
-		std::swap(vec[start], vec[end]);
-	}
-	else
-		std::cout << "not swapping" << vec[start] << " and " << vec[end] << std::endl;
-	std::cout << "after" << std::endl;
-	printVector(vec);
-
 }
 
 void PmergeMe::printVector(std::vector<int> vec) {
-
-	std::cout << "vector " << std::endl;
 
 	int vecLength = vec.size();
 	for (int i = 0; i < vecLength; i++)
@@ -132,19 +99,36 @@ void PmergeMe::printVector(std::vector<int> vec) {
 	std::cout  << std::endl;
 }
 
+void PmergeMe::printPairs(std::vector<std::pair<int,int> > pairs) {
+
+	int vecLength = pairs.size();
+	for (int i = 0; i < vecLength; i++)
+	{
+		std::cout << pairs[i].first << ", " << pairs[i].second << " " << std::endl;
+	}
+	std::cout  << std::endl;
+}
+
 void PmergeMe::processInput(char *input, std::vector<int> &vec) {
 
 	int i = 0;
-
 	while (input && input[i])
 	{
 		if (!std::isdigit(input[i]))
-			throw std::logic_error("checkInput: Input can contain only numbers");
+			throw std::logic_error("checkInput: Input can contain only numbers"); //todo
 		i++;
 	}
 
-	//todo int max
-	int nbr = std::atoi(input);
+	long Value;
+	std::string posString = input;
+	std::istringstream iss(posString);
+	if (!(iss >> Value) || (Value < INT_MIN || Value > INT_MAX))
+	{
+		std::cerr << "Conversion failed for string: " << input << std::endl;
+		return;
+	}
+
+	int nbr =  static_cast<int>(Value);
 	int vecLength = vec.size();
 
 	for (int i = 0; i < vecLength; i++)
@@ -155,6 +139,32 @@ void PmergeMe::processInput(char *input, std::vector<int> &vec) {
 	vec.push_back(nbr);
 }
 
+void PmergeMe::createSortedPairs (std::vector<int> &vec, std::vector<std::pair<int, int> > &pairs)
+{
+	
+	int vecLength = vec.size();
+	for (int i = 0; i < vecLength; i+=2)
+	{
+		if (i + 1 < vecLength)
+			if (vec[i] < vec[i+1])
+				pairs.push_back(std::make_pair(vec[i], vec[i+1]));
+			else
+				pairs.push_back(std::make_pair(vec[i+1], vec[i]));
+		else
+			pairs.push_back(std::make_pair(vec[i], -1));
+	}
+	std::sort(pairs.begin(), pairs.end());
+}
 
+void PmergeMe::splitPairs(std::vector<std::pair<int,int> > &pairs,std::vector<int> &firstVec,std::vector<int> &secondVec)
+{
+	int vecLength = pairs.size();
+	for (int i = 0; i < vecLength; i++)
+	{
+		firstVec.push_back(pairs[i].first);
+		if (pairs[i].second != -1)
+			secondVec.push_back(pairs[i].second);
+	}
+}
 
 PmergeMe::~PmergeMe(void) {}
