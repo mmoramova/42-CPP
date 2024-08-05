@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 14:46:33 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/03/17 14:53:18 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/08/05 19:38:41 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void RPN::compute(std::string input) {
 		if (input[i] == ' ')
 			continue;
 		else if (std::isdigit(input[i]))
-			st.push(std::atoi(&input[i]));
+			st.push(atoi(&input[i]));
 		else
 		{
 			nbr = st.top();

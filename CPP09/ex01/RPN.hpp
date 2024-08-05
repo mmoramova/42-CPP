@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 14:46:39 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/03/17 14:56:34 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/08/05 19:39:11 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <iostream>
 #include <string>
 #include <stack>
+#include <cstdlib>
 
 class RPN {
 
