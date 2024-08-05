@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:13:11 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/08/05 18:40:44 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/08/05 18:51:48 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ private:
 	void _splitPairs(std::vector<std::pair<int,int> > &pairs,std::vector<int> &firstVec,std::vector<int> &secondVec);
 	void _mergeSort (std::vector<int> &firstVec,std::vector<int> &secondVec, std::vector<int> &vec);
 	void _print (std::vector<int> vec);
-	void _printPairs(std::vector<std::pair<int,int> > pairs);
 
 	/*deque*/
 	void _saveInput(char *input, std::deque<int> &deq);
@@ -56,7 +55,6 @@ private:
 	void _splitPairs(std::deque<std::pair<int,int> > &pairs,std::deque<int> &firstVec,std::deque<int> &secondVec);
 	void _mergeSort (std::deque<int> &firstVec,std::deque<int> &secondVec, std::deque<int> &deq);
 	void _print (std::deque<int> deq);
-	void _printPairs(std::deque<std::pair<int,int> > pairs);
 };
 
 #endif
