@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 18:11:33 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/07/29 18:14:00 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/08/08 19:10:43 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,9 @@ void BitcoinExchange::_readInfile(std::string input)
 
 	if (!infile.is_open())	
 		throw std::invalid_argument("Failed to open file");
-	if (std::getline(infile, line) && line != "date | value")
+	if (!std::getline(infile, line))
+		throw std::invalid_argument("Empty input file");
+	if (line != "date | value")
 		throw std::invalid_argument("Incorrect syntax in the first line");
 	while (std::getline(infile, line))
 	{

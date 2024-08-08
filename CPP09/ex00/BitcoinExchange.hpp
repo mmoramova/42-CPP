@@ -6,7 +6,7 @@
 /*   By: mmoramov <mmoramov@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 18:11:30 by mmoramov          #+#    #+#             */
-/*   Updated: 2024/07/29 18:11:55 by mmoramov         ###   ########.fr       */
+/*   Updated: 2024/08/08 18:59:32 by mmoramov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 class BitcoinExchange
 {
 	public:
-		BitcoinExchange(void); //mrknut ci ma byt private
-	 	~BitcoinExchange(void); //tu tiez 
+		BitcoinExchange(void);
+	 	~BitcoinExchange(void);
 	 	void calculate(std::string input);
 
 	private:	
